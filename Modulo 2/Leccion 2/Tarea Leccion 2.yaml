@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: API de Gestión de Proyectos
+  version: 1.0.0
+paths:
+  /projects:
+    get:
+      summary: Obtiene todos los proyectos
+      responses:
+        200:
+          description: Lista de proyectos obtenida correctamente
+    post:
+      summary: Crea un nuevo proyecto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                description:
+                  type: string
+                language:
+                  type: string
+                open:
+                  type: boolean
+      responses:
+        201:
+          description: Proyecto creado correctamente
+        401: 
+          description: Error al crear proyecto
+
+  /projects/{projectId}:
+    get:
+      summary: Obtiene un proyecto por su ID
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Proyecto obtenido correctamente
+        400: 
+          description: Error al obtener proyecto
+    
+    put:
+      summary: Actualiza un proyecto ya creado
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                description:
+                  type: string
+                language:
+                  type: string
+                open:
+                  type: boolean
+      responses:
+        200:
+          description: Proyecto actualizado correctamente
+        400:
+          description: Error al actualizar proyecto
+    delete:
+      summary: Elimina un proyecto por su ID
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        204:
+          description: Proyecto eliminado correctamente
+        404:
+          description: Error al eliminar proyecto
+
+  /projects/code/{projectId}:
+    get:
+      summary: Obtiene el código del proyecto
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Código del proyecto obtenido correctamente
+        400:
+          description: Error al obtener código del proyecto
+
+  /projects/detail/{projectId}:
+    get:
+      summary: Obtiene los detalles del proyecto
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Detalles del proyecto obtenidos correctamente
+        400:
+          description: Error al obtener detalles del proyecto
+
+  /projects/users/{projectId}:
+    get:
+      summary: Obtiene los usuarios relacionados con el proyecto
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Usuarios relacionados con el proyecto obtenidos correctamente
+        400:
+          description: Error al obtener usuarios del proyecto
