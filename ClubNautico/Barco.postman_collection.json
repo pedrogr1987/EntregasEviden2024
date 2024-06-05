@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "ff788239-7a5e-4751-809b-a11dd992fadc",
+		"name": "Barco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35391522"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8082/findAllBarcos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"matricula\": \"1999DLS\",\r\n        \"nombre\": \"El barco de Yisus\",\r\n        \"numamarre\": 666,\r\n        \"cuota\": 999.4,\r\n        \"socio\": \"3\"\r\n    }  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/findAllBarcos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"findAllBarcos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/saveBarco",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"matricula\": \"1999DLS\",\r\n        \"nombre\": \"El barco de Yisus\",\r\n        \"numamarre\": 666,\r\n        \"cuota\": 999.4,\r\n        \"socio\": \"3\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/saveBarco",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"saveBarco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/updateBarco",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"matricula\": \"1999DLS\",\r\n        \"nombre\": \"El barco del Señor Luna\",\r\n        \"numamarre\": 666,\r\n        \"cuota\": 999.4,\r\n        \"socio\": \"3\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/updateBarco/1999DLS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"updateBarco",
+						"1999DLS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/deleteBarco",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"matricula\": \"1999DLS\",\r\n        \"nombre\": \"El barco de Yisus\",\r\n        \"numamarre\": 666,\r\n        \"cuota\": 999.4,\r\n        \"socio\": \"3\"\r\n    }  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/deleteBarco/1999DLS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"deleteBarco",
+						"1999DLS"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

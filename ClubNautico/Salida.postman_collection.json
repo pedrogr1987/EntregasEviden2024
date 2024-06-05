@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "7db48a47-be52-4260-a3dc-efa7f176c429",
+		"name": "Salida",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35391522"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8082/findAllSalidas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/findAllSalidas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"findAllSalidas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/saveSalida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": 3,\r\n        \"fecha\": \"2024/07/05\",\r\n        \"hora\": \"08:25\",\r\n        \"destino\": \"Jamaica\",\r\n        \"patron\": {\r\n            \"dni\": \"12345668M\",\r\n            \"nombre\": \"Jesús Manuel\",\r\n            \"apellidos\": \"Luna Cordero\"\r\n        },\r\n        \"barco\": {\r\n            \"matricula\": \"1999DLS\",\r\n            \"nombre\": \"El barco de Yisus\",\r\n            \"numamarre\": 666,\r\n            \"cuota\": 999.4,\r\n            \"socio\": \"3\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/saveSalida",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"saveSalida"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/updateSalida/52",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"id\": 52,\r\n        \"fecha\": \"2024/07/05\",\r\n        \"hora\": \"09:35\",\r\n        \"destino\": \"Cuba\",\r\n        \"patron\": {\r\n            \"dni\": \"12345668M\",\r\n            \"nombre\": \"Jesús Manuel\",\r\n            \"apellidos\": \"Luna Cordero\"\r\n        },\r\n        \"barco\": {\r\n            \"matricula\": \"1999DLS\",\r\n            \"nombre\": \"El barco de Yisus\",\r\n            \"numamarre\": 666,\r\n            \"cuota\": 999.4,\r\n            \"socio\": \"3\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/updateSalida/52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"updateSalida",
+						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/deleteSalida/52",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/deleteSalida/52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"deleteSalida",
+						"52"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
