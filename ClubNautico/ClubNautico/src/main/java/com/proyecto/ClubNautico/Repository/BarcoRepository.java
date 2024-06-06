@@ -6,8 +6,10 @@ package com.proyecto.ClubNautico.Repository;
  * Fecha: 2024/06/05
  * */
 
+import java.util.List;
 import java.util.Optional;
 import com.proyecto.ClubNautico.Entity.Barco;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,4 +22,6 @@ Estos métodos se crearon pero no fueron usados posteriormente
     //Barco findByMatricula(String matricula);*/
     //Este método permite buscar por el atributo matrícula un barco en la base de datos
     Optional<Barco> findByMatricula(String matricula);
+    List<BarcoClosedView> findBy();
+    Optional<BarcoClosedView> findBarcoByMatricula(String matricula);
 }

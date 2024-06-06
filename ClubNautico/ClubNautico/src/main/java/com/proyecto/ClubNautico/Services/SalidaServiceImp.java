@@ -7,11 +7,14 @@ package com.proyecto.ClubNautico.Services;
  * */
 
 import com.proyecto.ClubNautico.Entity.Salida;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.SalidaClosedView;
 import com.proyecto.ClubNautico.Repository.SalidaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Component
 public class SalidaServiceImp implements SalidaService{
@@ -42,8 +45,16 @@ public class SalidaServiceImp implements SalidaService{
 
     @Override
     public void deleteSalida(int id) {
-
         salidaRepository.deleteById(String.valueOf(id));
 
+    }
+    @Override
+    public List<SalidaClosedView> findBy() {
+        return salidaRepository.findBy();
+    }
+
+    @Override
+    public Optional<SalidaClosedView> findSalidaById(int id) {
+        return salidaRepository.findSalidaById(id);
     }
 }

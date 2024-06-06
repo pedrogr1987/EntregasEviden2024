@@ -32,7 +32,7 @@ public class Socio {
     // creando un ArrayList de entidades Barco
     @OneToMany
     (mappedBy="socio", cascade = CascadeType.ALL, fetch =
-            FetchType.EAGER,
+            FetchType.LAZY,
             orphanRemoval = true)
     private List<Barco> barcos;
 }

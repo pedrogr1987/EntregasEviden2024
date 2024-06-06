@@ -7,8 +7,12 @@ package com.proyecto.ClubNautico.Repository;
  * */
 
 import com.proyecto.ClubNautico.Entity.Patron;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.PatronClosedView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -19,4 +23,6 @@ Estos métodos se crearon pero no fueron usados posteriormente
     //Barco findByMatricula(String matricula);*/
     //Este método permite buscar por el atributo DNI un patron en la base de datos
     Optional<Patron> findByDni(String dni);
+    List<PatronClosedView> findBy();
+    Optional<PatronClosedView> findPatronByDni(String dni);
 }

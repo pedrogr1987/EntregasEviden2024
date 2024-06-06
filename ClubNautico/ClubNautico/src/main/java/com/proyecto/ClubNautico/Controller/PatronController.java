@@ -7,10 +7,12 @@ package com.proyecto.ClubNautico.Controller;
  * */
 
 import com.proyecto.ClubNautico.Entity.Patron;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.PatronClosedView;
 import com.proyecto.ClubNautico.Services.PatronService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PatronController {
@@ -18,6 +20,7 @@ public class PatronController {
     PatronService patronService;
 
     //Este método nos devuelve todos los patrones mediante un GET, cumpliendo la función READ
+    //NO SE USA EN LA VERSION CON DTO
     @GetMapping("/findAllPatrones")
     public List<Patron> findAllBarcos(){
         return patronService.findAllPatrones();
@@ -41,6 +44,18 @@ public class PatronController {
         patronService.deletePatron(Dni);
         return "Se ha borrado el patron del sistema";
     }
+    //Estos métodos cumplen la función READ mediante DTOs usando métodos Closed view Interface Based
 
+    //Para traer todos los objetos de clase Patron
+    @GetMapping("/findAllPatronesClosedView")
+    public List<PatronClosedView> findAllPatronesClosedView(){
+        return patronService.findBy();
+    }
+
+    //Para buscar un Patron mediante su atributo DNI
+    @GetMapping("/findPatronByDni/{dni}")
+    public Optional<PatronClosedView> findPatronByDni(@PathVariable String dni){
+        return patronService.findPatronByDni(dni);
+    }
     }
 

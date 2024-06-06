@@ -7,11 +7,13 @@ package com.proyecto.ClubNautico.Services;
  * */
 
 import com.proyecto.ClubNautico.Entity.Barco;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
 import com.proyecto.ClubNautico.Repository.BarcoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Component
 public class BarcoServiceImp implements BarcoService{
@@ -44,5 +46,15 @@ public class BarcoServiceImp implements BarcoService{
     @Override
     public void deleteBarco(String Matricula) {
         barcoRepository.deleteById(Matricula);
+    }
+
+   @Override
+    public List<BarcoClosedView> findBy() {
+        return barcoRepository.findBy();
+    }
+
+   @Override
+    public Optional<BarcoClosedView> findBarcoByMatricula(String matricula) {
+        return barcoRepository.findBarcoByMatricula(matricula);
     }
 }

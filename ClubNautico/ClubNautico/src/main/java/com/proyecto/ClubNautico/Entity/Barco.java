@@ -33,8 +33,9 @@ public class Barco {
     private Float cuota;
     /*Esto lo puse al principio pero al hacer la consulta, como también tengo en salida los barcos sale uno dentro del
     * otro formando un bucle infinito, así que decidí quitarlo*/
-   /* @OneToOne(mappedBy = "barco",cascade = CascadeType.ALL)
-    private Salida salida;*/
-    @Column(name = "socio")
-    private String socio;
+    @OneToOne(mappedBy = "barco",cascade = CascadeType.ALL)
+    private Salida salida;
+    @ManyToOne
+    @JoinColumn(name = "Socio")
+    private Socio socio;
 }
