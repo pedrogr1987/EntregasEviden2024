@@ -7,17 +7,18 @@ package com.proyecto.ClubNautico.Repository;
  * */
 
 import com.proyecto.ClubNautico.Entity.Salida;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.SalidaClosedView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface SalidaRepository extends JpaRepository<Salida, String>{
-/*
-Estos métodos se crearon pero no fueron usados posteriormente
-    Salida findByDestino(String destino);
-    //Salida findById(int id);*/
 
-    //Este método permite buscar por el atributo id una salida en la base de datos
     Optional<Salida> findById(int id);
+    List<SalidaClosedView> findBy();
+    Optional<SalidaClosedView> findSalidaById(int id);
 }

@@ -7,10 +7,12 @@ package com.proyecto.ClubNautico.Controller;
  * */
 
 import com.proyecto.ClubNautico.Entity.Salida;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.SalidaClosedView;
 import com.proyecto.ClubNautico.Services.SalidaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class SalidaController {
@@ -18,6 +20,7 @@ public class SalidaController {
     SalidaService salidaService;
 
     //Este método nos devuelve todos las salidas mediante un GET, cumpliendo la función READ
+    //NO SE USA EN LA VERSION CON DTO
     @GetMapping("/findAllSalidas")
     public List<Salida> findAllSalidas(){
         return salidaService.findAllSalidas();
@@ -34,13 +37,24 @@ public class SalidaController {
     public Salida updateSalida(@PathVariable int Id, @RequestBody Salida salida){
         return salidaService.updateSalida(Id, salida);
     }
-
     //Este método elimina una salida de la base de datos introduciendo su DNI mediante un DELETE, cumpliendo la función del mismo nombre
     @DeleteMapping("/deleteSalida/{Id}")
     public String deleteSalida(@PathVariable int Id) {
         salidaService.deleteSalida(Id);
         return "Se ha borrado la Salida del sistema";
     }
+    //Estos métodos cumplen la función READ mediante DTOs usando métodos Closed view Interface Based
 
+    //Para traer todos los objetos de clase Salida
+    @GetMapping("/findAllSalidasClosedView")
+    public List<SalidaClosedView> findAllSalidasClosedView(){
+        return salidaService.findBy();
     }
+
+    //Para buscar una Salida mediante su atributo Id
+    @GetMapping("/findSalidaById/{id}")
+    public Optional<SalidaClosedView> findSalidaById(@PathVariable int id){
+        return salidaService.findSalidaById(id);
+    }
+}
 

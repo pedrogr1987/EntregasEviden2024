@@ -7,10 +7,12 @@ package com.proyecto.ClubNautico.Controller;
  * */
 
 import com.proyecto.ClubNautico.Entity.Socio;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.SocioClosedView;
 import com.proyecto.ClubNautico.Services.SocioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class SocioController {
@@ -18,6 +20,7 @@ public class SocioController {
     SocioService socioService;
 
     //Este método nos devuelve todos los socios mediante un GET, cumpliendo la función READ
+    //NO SE USA EN LA VERSION CON DTO
     @GetMapping("/findAllSocios")
     public List<Socio> findAllSocios(){
         return socioService.findAllSocios();
@@ -42,5 +45,17 @@ public class SocioController {
         return "Se ha borrado el socio del sistema";
     }
 
+    //Para traer todos los objetos de clase Socio
+    @GetMapping("findAllSociosClosedView")
+    public List<SocioClosedView> findAllSociosClosedView(){
+        return socioService.findBy();
     }
+
+    //Para buscar un Socio mediante su atributo Id
+    @GetMapping("/findSocioById/{id}")
+    public Optional<SocioClosedView> findSocioById(@PathVariable String id){
+        return socioService.findSocioById(id);
+    }
+
+}
 

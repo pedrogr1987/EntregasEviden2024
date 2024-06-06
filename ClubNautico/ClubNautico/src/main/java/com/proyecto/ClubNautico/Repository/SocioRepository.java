@@ -7,12 +7,16 @@ package com.proyecto.ClubNautico.Repository;
  * */
 
 import com.proyecto.ClubNautico.Entity.Socio;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.SocioClosedView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface SocioRepository extends JpaRepository<Socio, String>{
-    // Socio findByid(String id);
-    // Barco findByBarco(String Barco);
-    // Optional<Socio> findByBarco(String barco);
+    List<SocioClosedView> findBy();
+    Optional<SocioClosedView> findSocioById(String Id);
 }

@@ -7,11 +7,17 @@ package com.proyecto.ClubNautico.Services;
  * */
 
 import com.proyecto.ClubNautico.Entity.Patron;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.PatronClosedView;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface PatronService {
     List<Patron> findAllPatrones();
     Patron savePatron(Patron patron);
     Patron updatePatron(String Dni, Patron patron);
     void deletePatron(String dni);
+    List<PatronClosedView> findBy();
+    Optional<PatronClosedView> findPatronByDni(String dni);
 }

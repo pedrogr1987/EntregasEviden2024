@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/findAllPatrones",
+			"name": "http://localhost:8082/findAllPatronesClosedView",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -20,6 +20,26 @@
 					"port": "8082",
 					"path": [
 						"findAllPatrones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findPatronByDni",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/findPatronByDni/11223344A",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"findPatronByDni",
+						"11223344A"
 					]
 				}
 			},

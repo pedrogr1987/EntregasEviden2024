@@ -7,11 +7,13 @@ package com.proyecto.ClubNautico.Services;
  * */
 
 import com.proyecto.ClubNautico.Entity.Patron;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.PatronClosedView;
 import com.proyecto.ClubNautico.Repository.PatronRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Component
 public class PatronServiceImp implements PatronService{
@@ -44,5 +46,15 @@ public class PatronServiceImp implements PatronService{
     public void deletePatron(String dni) {
 
         patronRepository.deleteById(dni);
+    }
+
+    @Override
+    public List<PatronClosedView> findBy() {
+        return patronRepository.findBy();
+    }
+
+    @Override
+    public Optional<PatronClosedView> findPatronByDni(String dni) {
+        return patronRepository.findPatronByDni(dni);
     }
 }

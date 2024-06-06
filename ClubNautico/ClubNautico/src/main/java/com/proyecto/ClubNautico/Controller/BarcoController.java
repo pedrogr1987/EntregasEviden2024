@@ -7,10 +7,12 @@ package com.proyecto.ClubNautico.Controller;
  * */
 
 import com.proyecto.ClubNautico.Entity.Barco;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
 import com.proyecto.ClubNautico.Services.BarcoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class BarcoController {
@@ -18,6 +20,7 @@ public class BarcoController {
     BarcoService barcoService;
 
     //Este método nos devuelve todos los barcos mediante un GET, cumpliendo la función READ
+    //NO SE USA EN LA VERSION CON DTO
     @GetMapping("/findAllBarcos")
     public List<Barco> findAllBarcos(){
         return barcoService.findAllBarcos();
@@ -41,6 +44,18 @@ public class BarcoController {
         barcoService.deleteBarco(Matricula);
         return "Se ha borrado el barco del sistema";
     }
+    //Estos métodos cumplen la función READ mediante DTOs usando métodos Closed view Interface Based
 
+    //Para traer todos los objetos de clase Barco
+    @GetMapping("/findAllBarcosClosedView")
+    public List<BarcoClosedView> findAllBarcosClosedView(){
+        return barcoService.findBy();
     }
+
+    //Para buscar un Barco mediante su atributo Matrícula
+    @GetMapping("/findBarcoByMatricula/{Matricula}")
+    public Optional<BarcoClosedView> findBarcoByMatricula(@PathVariable String Matricula){
+        return barcoService.findBarcoByMatricula(Matricula);
+    }
+}
 

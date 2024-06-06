@@ -7,19 +7,39 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/findAllSalidas",
+			"name": "http://localhost:8082/findAllSalidasClosedView",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/findAllSalidas",
+					"raw": "http://localhost:8082/findAllSalidasClosedView",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8082",
 					"path": [
-						"findAllSalidas"
+						"findAllSalidasClosedView"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findSalidaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/findSalidaById/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"findSalidaById",
+						"1"
 					]
 				}
 			},

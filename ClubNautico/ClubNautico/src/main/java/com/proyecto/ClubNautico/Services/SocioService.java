@@ -7,11 +7,17 @@ package com.proyecto.ClubNautico.Services;
  * */
 
 import com.proyecto.ClubNautico.Entity.Socio;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.BarcoClosedView;
+import com.proyecto.ClubNautico.Projection.InterfaceBased.closed.SocioClosedView;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface SocioService {
     List<Socio> findAllSocios();
     Socio saveSocio(Socio socio);
     Socio updateSocio(String id, Socio socio);
     void deleteSocio(String id);
+    Optional<SocioClosedView> findSocioById(String id);
+    List<SocioClosedView> findBy();
 }

@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/findAllBarcos",
+			"name": "http://localhost:8082/findAllBarcosClosedView",
 			"event": [
 				{
 					"listen": "test",
@@ -36,14 +36,34 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/findAllBarcos",
+					"raw": "http://localhost:8082/findAllBarcosClosedView",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8082",
 					"path": [
-						"findAllBarcos"
+						"findAllBarcosClosedView"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findBarcoByMatricula",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/findBarcoByMatricula/1999DLS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"findBarcoByMatricula",
+						"1999DLS"
 					]
 				}
 			},

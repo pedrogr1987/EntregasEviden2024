@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/findAllSocios",
+			"name": "http://localhost:8082/findAllSociosClosedView",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -20,6 +20,26 @@
 					"port": "8082",
 					"path": [
 						"findAllSocios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findSocioById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/findSocioById/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"findSocioById",
+						"3"
 					]
 				}
 			},
