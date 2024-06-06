@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2024 a las 08:07:51
+-- Tiempo de generación: 06-06-2024 a las 13:35:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -151,6 +151,12 @@ ALTER TABLE `socio`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `barco`
+--
+ALTER TABLE `barco`
+  ADD CONSTRAINT `FKtcbqk9kcu1me66rt0a0h0murm` FOREIGN KEY (`socio`) REFERENCES `socio` (`id`);
 
 --
 -- Filtros para la tabla `salida`
